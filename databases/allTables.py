@@ -18,10 +18,10 @@ custom_schema = "ecom"
 
 
 # Define an enum for user roles
-class UserRole(enum.Enum):
-    ADMIN = "admin"
-    USER = "user"
-    GUEST = "guest"
+# class UserRole(enum.Enum):
+#     ADMIN = "admin"
+#     USER = "user"
+#     GUEST = "guest"
 
 
 class User(Base):
@@ -35,7 +35,7 @@ class User(Base):
     first_name = Column(String(50), nullable=True)
     last_name = Column(String(50), nullable=True)
     date_of_birth = Column(Date, nullable=True)
-    role = Column(Enum(UserRole), default=UserRole.USER, nullable=False)
+    role = Column(String, default="user", nullable=False)
     is_active = Column(Boolean, default=True)
     is_verified = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
